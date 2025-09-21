@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Saira:wght@400;600;700;800&display=swap");
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  /* ---------- Colores ---------- */
+  --color-primary: #d9d8d2;
+  --color-secondary: #8c8c88;
+  --color-background: #080d05;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d9d9d9;
+  --color-text-muted: #8b8c5e;
+  --color-link: #404040;
+  --color-link-hover: #bfba75;
+
+  /* ---------- Tipografía ---------- */
+  --font-family-header: "Saira", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-mono: "Fira Code", monospace;
+  --font-size-base: 16px;
+  --font-size-heading: 2rem;
+  --font-size-heading-logo: 1.5rem;
+  --font-size-subheading: 1.2rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --line-height: 1.6;
+  --letter-spacing: 0.5px;
+
+  /* ---------- Espaciados ---------- */
+  --spacing-base: 0.5em;
+  --spacing-logo: 30px;
+
+  /* ---------- Bordes y sombras ---------- */
+  --border-radius: 4px;
+  --box-shadow: 0 0 7px 1px var(--color-secondary);
+
+  /* ---------- Transiciones ---------- */
+  --transition-base: 0.3s ease-in-out;
+}
+
+/* =========================
+   RESET Y BASE
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  font-family: var(--font-family-body);
+  color: var(--color-text-primary);
+}
+/* ****************************************
+ *           Desabilitar Scroll                
+ **************************************** */
+.no-scroll {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* ****************************************
+ *                 HEADER                 
+ **************************************** */
+.header {
+  display: flex;
+  background: var(--color-background);
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family-header);
+  padding: 0.8em 2em;
+  position: sticky;
+  top: 0;
+}
+
+/* ---------- LOGO ---------- */
+.header .logo {
+  font-size: var(--font-size-heading-logo);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.header .logo .header-logo-text {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.header .logo .header-logo-subtext {
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+/* ---------- NAVIGATION ---------- */
+.header-medium .nav-menu {
+  display: flex;
+  gap: var(--spacing-base);
+  align-items: center;
+}
+
+.header-medium .nav-menu .nav-link {
+  position: relative;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-subheading);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color var(--transition-base);
+}
+
+.header-medium .nav-menu .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--color-link-hover);
+  transition: width var(--transition-base);
+}
+
+.header-medium .nav-menu .nav-link:hover {
+  color: var(--color-link-hover);
+}
+
+.header-medium .nav-menu .nav-link:hover::after {
+  width: 100%;
+}
+.header-medium .nav-menu .nav-link.active-link {
+  color: var(--color-link-hover);
+}
+
+/* ------------- HEADER RIGHT ---------- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+/* ---------- FLAGS (IDIOMAS) ---------- */
+.header-right .flags {
+  display: flex;
+  gap: var(--spacing-base);
+}
+
+.header-right .flags .flags__item {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.header-right .flags .flags__item img {
+  width: var(--font-size-heading);
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-right .flags .flags__item:hover img {
+  box-shadow: var(--box-shadow);
+}
+/* ---------- DARK MODE BUTTON ---------- */
+.header-right .box-dark-mode button {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+.header-right .box-dark-mode i {
+  font-size: 1.8rem;
+}
+
+.header-right .box-dark-mode button:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- MENU DESPLEGABLE ---------- */
+.hamburger-menu {
+  display: none;
+}
+.hamburger-menu .hamburguer-menu-button {
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+.hamburger-menu-content {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-background);
+  z-index: 999;
+}
+.hamburger-menu-content a {
+  display: block;
+  text-align: center;
+  padding: 1em 2em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hamburger-menu-content .close-menu {
+  text-align: center;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: calc(var(--font-size-heading) + 0.5rem);
+}
+.hamburger-menu-content a:hover,
+.close-menu:hover {
+  color: var(--color-link-hover);
+}
+/* ---------- MEDIA QUERIES ---------- */
+@media (max-width: 1220px) {
+  .header-medium {
+    display: none;
+  }
+  /* poner flotante  en la base de la pagina*/
+  .header-right {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 998;
+  }
+  .header-right .flags {
+    display: inline-block;
+  }
+  /* mas bonito */
+  .flags__item,
+  .box-dark-mode {
+    background-color: var(--color-background);
+    margin: 0.3em 0.5em;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .header-right .flags .flags__item img {
+    width: 60px;
+  }
+  .header-right .box-dark-mode i {
+    font-size: 60px;
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+  }
+  .hamburger-menu-content.active {
+    display: block;
+  }
+}
