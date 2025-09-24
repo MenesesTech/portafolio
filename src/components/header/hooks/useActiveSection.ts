@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
-
-// Definimos la interfaz para los enlaces de navegación.
-// Cada enlace tiene un href (selector CSS, ej: "#home") y una etiqueta visible.
-interface NavLink {
-  href: string;
-  label: string;
-}
+import type { NavLink } from "../types/header.types";
 
 // Custom hook que gestiona qué sección de la página está activa
-const useActiveSection = (navLinks: NavLink[]) => {
+export function useActiveSection(navLinks: NavLink[]) {
   // Estado que guarda el ID de la sección actualmente activa
   // "home" es el valor inicial por defecto
   const [activeLink, setActiveLink] = useState("home");
@@ -64,4 +58,4 @@ const useActiveSection = (navLinks: NavLink[]) => {
 
   // Retornamos el estado y su setter para que el componente que use este hook pueda accederlo
   return { activeLink, setActiveLink };
-};
+}

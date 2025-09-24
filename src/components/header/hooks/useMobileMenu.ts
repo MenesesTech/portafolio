@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // Custom hook para manejar el estado de un menú móvil
-const useMobileMenu = () => {
+export function useMobileMenu() {
   // Estado que indica si el menú está abierto (true) o cerrado (false)
   // useState<boolean>(false) → valor inicial: cerrado
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,4 +38,4 @@ const useMobileMenu = () => {
     closeMobileMenu,
     toggleMobileMenu,
   };
-};
+}

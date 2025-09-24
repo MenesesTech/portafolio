@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Saira:wght@400;600;700;800&display=swap");
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  /* ---------- Colores core (dark) ---------- */
+  --clr-neutral-900: #0d0d0d;
+  --clr-neutral-700: #63aebf;
+  --clr-neutral-300: #3d598f;
+  --clr-neutral-100: #f0f4f8;
+  --clr-accent-400: #8d9598;
+  --clr-accent-500: #bf4417;
+  --color-primary: #0d0d0d;
+  --box-shadow: 0 0 0.25em 1.5em rgba(0, 0, 0, 0.2);
+
+  /* ---------- Tipografía ---------- */
+  --font-family-header: "Saira", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-mono: "Fira Code", monospace;
+
+  /* Tamaños escalables*/
+  --fs-200: 0.75rem;
+  --fs-300: 1rem;
+  --fs-400: 1.25rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.75rem;
+  --fs-900: 2.125rem;
+
+  /* Espaciados / bordes / transiciones */
+  --spacing-base: 0.5em;
+  --spacing-logo: 30px;
+  --border-radius: 50px;
+  --transition-base: 0.3s ease-in-out;
+}
+
+/* =========================
+   LIGHT MODE (claro)
+========================= */
+.dark-mode {
+  /* ---------- Colores core (light) ---------- */
+  --clr-neutral-900: #59a9a0;
+  --clr-neutral-700: #547773;
+  --clr-neutral-300: #243e3f;
+  --clr-neutral-100: #070705;
+  --clr-accent-400: #568f9a;
+  --clr-accent-500: #c0d3cf;
+  --color-primary: #f2f2f2;
+}
+
+/* ajuste responsivo de fuentes */
+@media (min-width: 40em) {
+  :root {
+    --fs-500: 1.75rem;
+    --fs-600: 2.125rem;
+    --fs-900: 4.25rem;
+  }
+}
+/* =========================
+   RESET Y BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-family-body);
+  background: var(--clr-neutral-100);
+  color: var(--color-primary);
+  line-height: var(--line-height);
+}
